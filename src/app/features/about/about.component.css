@@ -1,0 +1,161 @@
+.about-section {
+    background: var(--light-gray);
+    padding: 80px 0;
+  }
+  
+  /* Image */
+  .about-image img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .about-image img:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Text */
+  .about-text {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+  
+  /* ========================= */
+  /* Highlight Cards */
+  /* ========================= */
+  
+  .about-highlights {
+    margin-top: 25px;
+  }
+  
+  .highlight-card {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    padding: 16px 18px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+  }
+  
+  .highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  }
+  
+  .highlight-card i {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-right: 14px;
+    margin-top: 4px;
+  }
+  
+  .highlight-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .highlight-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+  
+  /* ========================= */
+  /* Stats Section */
+  /* ========================= */
+  
+  .about-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+  }
+  
+  .stat-box {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+  
+  .stat-box:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: #ddd;
+  }
+  
+  .stat-box h3 {
+    font-size: 40px;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 5px;
+    animation: fadeUp 1s ease forwards;
+  }
+  
+  .stat-box p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ========================= */
+  /* Responsive */
+  /* ========================= */
+  
+  @media (max-width: 992px) {
+    .about-section {
+      padding: 60px 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+  
+    .about-section {
+      padding: 50px 20px;
+    }
+  
+    .about-text {
+      font-size: 15px;
+    }
+  
+    .highlight-card h4 {
+      font-size: 15px;
+    }
+  
+    .highlight-card p {
+      font-size: 13px;
+    }
+  
+    .about-stats {
+      flex-direction: column;
+      border-top: none;
+      gap: 20px;
+    }
+  
+    .stat-box:not(:last-child)::after {
+      display: none;
+    }
+  }
