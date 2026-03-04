@@ -1,0 +1,172 @@
+/* ===== HEADER BASE ===== */
+.header {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* ===== CONTAINER ===== */
+  .header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* ===== LOGO ===== */
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo .rg {
+    color: #d31b1b;
+    margin-right: 5px;
+  }
+  
+  .logo .name {
+    color: #000;
+  }
+  
+  /* ===== NAV ===== */
+  .nav {
+    display: flex;
+    gap: 35px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+  }
+  
+  .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #d31b1b;
+    transition: 0.3s;
+  }
+  
+  .nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* ===== RIGHT SECTION ===== */
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .icon-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .icon-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: #d31b1b;
+  }
+  
+  .desktop-btn {
+    background: #d31b1b;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  
+  .desktop-btn:hover {
+    background: #000;
+  }
+  
+  /* ===== HAMBURGER ===== */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 2px;
+    background: #000;
+  }
+  
+  /* ===== MOBILE ===== */
+  @media (max-width: 992px) {
+  
+    .header-container {
+      height: 65px;
+    }
+  
+    .nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 270px;
+      height: 100vh;
+      background: #fff;
+      flex-direction: column;
+      padding-top: 100px;
+      gap: 25px;
+      padding-left: 30px;
+      transition: 0.3s ease;
+      z-index: 1000;
+    }
+  
+    .nav.active {
+      right: 0;
+    }
+  
+    .right-section {
+      display: none;
+    }
+  
+    .mobile-btn {
+      display: inline-block;
+      background: #d31b1b;
+      color: #fff !important;
+      padding: 10px 15px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  }
+  
+  /* ===== OVERLAY ===== */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 900;
+  }

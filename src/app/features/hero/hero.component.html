@@ -1,0 +1,40 @@
+<section class="hero">
+
+    <div
+      class="slide"
+      *ngFor="let image of images; let i = index"
+      [class.active]="i === currentIndex"
+      [style.backgroundImage]="'url(' + image + ')'"
+    ></div>
+  
+    <!-- Overlay Content -->
+    <div class="hero-content">
+  
+      <h1>
+        Building Trust. Engineering Excellence.
+        <br />
+        Strong Foundations. Reliable Construction.
+      </h1>
+  
+      <p>
+        Led by Rohit Gaykwad – Civil Engineer & Founder.
+        Delivering quality residential & commercial projects.
+      </p>
+  
+      <div class="hero-buttons">
+        <a routerLink="/contact" class="primary-btn">
+          Get a Free Quote
+        </a>
+  
+        <a routerLink="/projects" class="secondary-btn">
+          View Our Projects
+        </a>
+      </div>
+  
+    </div>
+  
+    <!-- Arrows -->
+    <div class="arrow left" (click)="prevSlide()">❮</div>
+    <div class="arrow right" (click)="nextSlide()">❯</div>
+  
+  </section>
