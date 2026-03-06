@@ -1,0 +1,68 @@
+.process-section {
+    background: var(--light-gray);
+  }
+  
+  .process-wrapper {
+    margin-top: 40px;
+  }
+  
+  .process-card {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .process-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+  
+  .process-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(211, 27, 27, 0.1);
+    color: #d31b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+  }
+  
+  .process-icon i {
+    font-size: 30px;
+  }
+  
+  .process-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .process-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  /* Tablet */
+  @media (max-width: 992px) {
+  
+    .process-card {
+      margin-bottom: 20px;
+    }
+  
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+  
+    .process-section {
+      padding: 60px 20px;
+    }
+  
+  }

@@ -1,0 +1,32 @@
+.choose-section{
+    background:#f8f9fa;
+    }
+    
+    .choose-card{
+    text-align:center;
+    padding:30px 20px;
+    background:#fff;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
+    }
+    
+    .choose-card:hover{
+    transform:translateY(-5px);
+    }
+    
+    .choose-card i{
+    font-size:40px;
+    color:#d31b1b;
+    margin-bottom:15px;
+    }
+    
+    .choose-card h4{
+    font-size:18px;
+    margin-bottom:10px;
+    }
+    
+    .choose-card p{
+    font-size:14px;
+    color:#666;
+    }
