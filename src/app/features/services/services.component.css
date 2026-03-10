@@ -1,56 +1,154 @@
-.services-section {
-    background: #fff;
+/* Service Card */
+
+.service-card{
+
+  background:#fff;
+  padding:30px 25px;
+  
+  border-radius:8px;
+  border:1px solid #eee;
+  
+  text-align:center;
+  
+  transition:all .35s ease;
+  
+  position:relative;
+  overflow:hidden;
+  
+  height:100%;
+  
   }
   
-  .service-card {
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 30px 25px;
-    text-align: center;
-    border: 1px solid #eee;
-    transition: all 0.3s ease;
-    height: 100%;
+  /* TOP ACCENT LINE */
+  
+  .service-card::before{
+  
+  content:"";
+  
+  position:absolute;
+  
+  top:0;
+  left:0;
+  
+  height:4px;
+  width:0%;
+  
+  background:#d31b1b;
+  
+  transition:.4s;
+  
   }
   
-  .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  /* Hover Effect */
+  
+  .service-card:hover{
+  
+  transform:translateY(-6px);
+  
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  
   }
   
-  .service-card i {
-    font-size: 38px;
-    color: var(--primary-color);
-    margin-bottom: 18px;
+  .service-card:hover::before{
+  
+  width:100%;
+  
   }
   
-  .service-card h4 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 12px;
+  /* Icon */
+  
+  .service-card i{
+  
+  font-size:34px;
+  
+  color:#d31b1b;
+  
+  margin-bottom:15px;
+  
+  transition:.3s;
+  
   }
   
-  .service-card p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.6;
+  .service-card:hover i{
+  
+  transform:scale(1.15);
+  
   }
   
-  /* Tablet */
-  @media (max-width: 992px) {
-    .service-card {
-      padding: 25px 20px;
-    }
+  /* Title */
+  
+  .service-card h4{
+  
+  font-size:18px;
+  font-weight:600;
+  
+  margin-bottom:10px;
+  
   }
   
-  /* Mobile */
-  @media (max-width: 768px) {
+  /* Text */
   
-    .services-section {
-      padding: 60px 20px;
-    }
+  .service-card p{
   
-    .service-card h4 {
-      font-size: 17px;
-    }
+  font-size:14px;
+  color:#666;
+  line-height:1.6;
+  
+  }
+  
+  /* Badge */
+  
+  .service-badge{
+  
+  position:absolute;
+  
+  top:15px;
+  right:15px;
+  
+  background:#d31b1b;
+  color:#fff;
+  
+  font-size:12px;
+  font-weight:600;
+  
+  padding:4px 10px;
+  
+  border-radius:4px;
+  
+  }
+  
+  /* Contract Link */
+  
+  .service-doc-link{
+  
+  display:inline-block;
+  
+  margin-top:10px;
+  
+  font-size:14px;
+  
+  font-weight:500;
+  
+  color:#d31b1b;
+  
+  text-decoration:none;
+  
+  }
+  
+  .service-doc-link:hover{
+  
+  text-decoration:underline;
+  
+  }
+  
+  /* Responsive */
+  
+  @media(max-width:768px){
+  
+  .service-card{
+  
+  padding:25px 20px;
+  
+  }
   
   }
