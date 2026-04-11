@@ -12,7 +12,7 @@ import { RouterModule, RouterLink } from '@angular/router';
 export class HeroComponent implements OnInit {
 
   images: string[] = [
-   'hero/dash1.jpg',
+  //  'hero/dash1.jpg',
   'hero/dash2.jpg',
   'hero/dash3.jpg',
   'hero/dash4.jpg',
