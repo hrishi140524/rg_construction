@@ -47,7 +47,21 @@
     margin:0;
     font-size:18px;
     }
+    /* Category spacing */
+
+.project-category{
+    margin-top:50px;
+    }
     
+    /* Category title */
+    
+    .project-category-title{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:20px;
+    color:var(--primary-color);
+    text-align:center;
+    }
     /* Tablet */
     
     @media(max-width:992px){
