@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2'; 
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -42,78 +43,25 @@ export class ContactComponent {
     return nameValid && mobileValid && typeValid && descriptionValid;
   }
 
-  // async submitEnquiry() {
+ 
 
+  async submitEnquiry(form: any) {
 
-  //   if (!this.isFormValid()) return;
+    if (!this.isFormValid()) return;
   
-  //   this.isSubmitting = true;
-  
-  //   try {
-  
-  //     // 🔥 FIREBASE SAVE
-  //     const ref = collection(this.firestore, 'enquiries');
-  
-  //     await addDoc(ref, {
-  //       ...this.enquiry,
-  //       createdAt: new Date()
-  //     });
-  
-  //     // 🔥 EMAIL SEND
-  //     await emailjs.send(
-  //       'YOUR_SERVICE_ID',
-  //       'YOUR_TEMPLATE_ID',
-  //       {
-  //         name: this.enquiry.name,
-  //         mobile: this.enquiry.mobile,
-  //         location: this.enquiry.location,
-  //         type: this.enquiry.type,
-  //         description: this.enquiry.description || 'N/A'
-  //       },
-  //       'YOUR_PUBLIC_KEY'
-  //     );
-  
-  //     alert('✅ Enquiry submitted & email sent');
-  
-  //     // RESET
-  //     this.enquiry = {
-  //       name: '',
-  //       mobile: '',
-  //       location: '',
-  //       type: '',
-  //       description: ''
-  //     };
-  
-  //     this.showOtherField = false;
-  
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert('❌ Something went wrong');
-  //   }
-  
-  //   this.isSubmitting = false;
-  //   console.log("🔥 Submit clicked", this.enquiry);
-  // }
-
-  async submitEnquiry() {
-
-    console.log("🔥 Submit started");
+    this.isSubmitting = true;
   
     try {
   
       const ref = collection(this.firestore, 'enquiries');
-      console.log("📦 Firebase ref created");
   
       await addDoc(ref, {
         ...this.enquiry,
         createdAt: new Date()
       });
   
-      console.log("✅ Firebase saved");
-  
-
       await emailjs.send(
-        'service_pvxk7ul',   // ✅ NEW service
+        'service_pvxk7ul',
         'template_2n3k597',
         {
           name: this.enquiry.name,
@@ -124,10 +72,39 @@ export class ContactComponent {
         },
         'oFDUXP_wTuYXGM6jq'
       );
+  
+        Swal.fire({
+          title: 'Enquiry sent successfully',
+          icon: 'success',
+          timer: 3000,
+          showConfirmButton: false
+        });
+  
+      // ✅ RESET FORM COMPLETELY
+      form.resetForm();
+  
+      // optional reset (safe)
+      this.enquiry = {
+        name: '',
+        mobile: '',
+        location: '',
+        type: '',
+        description: ''
+      };
+  
+      this.showOtherField = false;
+  
     } catch (err) {
       console.error("❌ ERROR:", err);
+      Swal.fire({
+        title: 'Failed to send enquiry',
+        icon: 'error',
+        timer: 3000,
+        showConfirmButton: false
+      });
     }
   
+    this.isSubmitting = false;
   }
 
 }

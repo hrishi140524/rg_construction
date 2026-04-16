@@ -15,20 +15,29 @@
         <div class="enquiry-form card-box">
           <h3>Send Enquiry</h3>
       
-          <form #form="ngForm" (ngSubmit)="submitEnquiry()">
+          <form #form="ngForm" (ngSubmit)="submitEnquiry(form)">
 
             <div class="form-row">
               <input type="text"
-                     [(ngModel)]="enquiry.name"
-                     name="name"
-                     placeholder="Full Name"
-                     required>
+              [(ngModel)]="enquiry.name"
+              name="name"
+              placeholder="Full Name"
+              required
+              minlength="3"
+              #name="ngModel">
+       
+       <div *ngIf="name.invalid && name.touched" style="color:red; font-size:12px;">
+         Name must be at least 3 characters
+       </div>
           
-              <input type="text"
+                     <input type="text"
                      [(ngModel)]="enquiry.mobile"
                      name="mobile"
                      placeholder="Mobile Number"
-                     required>
+                     required
+                     maxlength="10"
+                     pattern="[6-9]{1}[0-9]{9}"
+                     #mobile="ngModel">
             </div>
           
             <div class="form-row">
@@ -37,10 +46,15 @@
                      name="location"
                      placeholder="Location">
           
-              <select [(ngModel)]="enquiry.type"
-                      name="type"
-                      (change)="onTypeChange()"
-                      required>
+                     <select [(ngModel)]="enquiry.type"
+                     name="type"
+                     required
+                     #type="ngModel"
+                     (change)="onTypeChange()">
+
+                     <div *ngIf="type.invalid && type.touched" style="color:red; font-size:12px;">
+                      Please select enquiry type
+                    </div>
           
                 <option value="">Select Enquiry Type</option>
                 <option value="Turnkey">Turnkey</option>
@@ -53,24 +67,38 @@
               </select>
             </div>
           
-            <textarea *ngIf="showOtherField"
-                      [(ngModel)]="enquiry.description"
-                      name="description"
-                      placeholder="Describe your requirement..."
-                      rows="3"
-                      required>
-            </textarea>
+            <div *ngIf="showOtherField">
+
+              <textarea
+                [(ngModel)]="enquiry.description"
+                name="description"
+                required
+                minlength="5"
+                #desc="ngModel"
+                placeholder="Describe your requirement..."
+                rows="3">
+              </textarea>
+            
+              <div *ngIf="desc.invalid && desc.touched" style="color:red; font-size:12px;">
+                Description must be at least 5 characters
+              </div>
+            
+            </div>
           
-            <!-- <button type="submit"
+      
+            <button 
+            type="submit"
             class="btn-submit"
-            [disabled]="!form.valid || !isFormValid() || isSubmitting">
-    
-      {{ isSubmitting ? 'Sending...' : 'Send Enquiry' }}
-    
-    </button> -->
-    <button type="submit" class="btn-submit">
-      Send Enquiry
-    </button>
+            [disabled]="!isFormValid() || isSubmitting">
+          
+            <span *ngIf="!isSubmitting">Send Enquiry</span>
+            <span *ngIf="isSubmitting">Sending...</span>
+          
+          </button>
+
+          <div *ngIf="mobile.invalid && mobile.touched" style="color:red; font-size:12px;">
+            Enter valid 10-digit mobile number
+          </div>
           
           </form>
         </div>
