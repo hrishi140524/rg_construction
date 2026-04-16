@@ -8,11 +8,76 @@
 
     <div class="contact-grid">
 
-      <!-- CONTACT CARD -->
+      <!-- LEFT SIDE -->
       <div class="contact-card">
 
-        <div class="contact-info">
+        <!-- 🔥 TOP: ENQUIRY FORM -->
+        <div class="enquiry-form card-box">
+          <h3>Send Enquiry</h3>
+      
+          <form #form="ngForm" (ngSubmit)="submitEnquiry()">
 
+            <div class="form-row">
+              <input type="text"
+                     [(ngModel)]="enquiry.name"
+                     name="name"
+                     placeholder="Full Name"
+                     required>
+          
+              <input type="text"
+                     [(ngModel)]="enquiry.mobile"
+                     name="mobile"
+                     placeholder="Mobile Number"
+                     required>
+            </div>
+          
+            <div class="form-row">
+              <input type="text"
+                     [(ngModel)]="enquiry.location"
+                     name="location"
+                     placeholder="Location">
+          
+              <select [(ngModel)]="enquiry.type"
+                      name="type"
+                      (change)="onTypeChange()"
+                      required>
+          
+                <option value="">Select Enquiry Type</option>
+                <option value="Turnkey">Turnkey</option>
+                <option value="Interior">Interior</option>
+                <option value="Consultant">Consultant</option>
+                <option value="Land Buy/Sell">Land Buy/Sell</option>
+                <option value="Renovation">Renovation</option>
+                <option value="Other">Other</option>
+          
+              </select>
+            </div>
+          
+            <textarea *ngIf="showOtherField"
+                      [(ngModel)]="enquiry.description"
+                      name="description"
+                      placeholder="Describe your requirement..."
+                      rows="3"
+                      required>
+            </textarea>
+          
+            <!-- <button type="submit"
+            class="btn-submit"
+            [disabled]="!form.valid || !isFormValid() || isSubmitting">
+    
+      {{ isSubmitting ? 'Sending...' : 'Send Enquiry' }}
+    
+    </button> -->
+    <button type="submit" class="btn-submit">
+      Send Enquiry
+    </button>
+          
+          </form>
+        </div>
+      
+        <!-- 🔥 MIDDLE: CONTACT INFO -->
+        <div class="contact-info">
+      
           <div class="contact-box">
             <i class="bi bi-telephone"></i>
             <div>
@@ -20,7 +85,7 @@
               <p><a href="tel:+919876543210">+91 9876543210</a></p>
             </div>
           </div>
-
+      
           <div class="contact-box">
             <i class="bi bi-whatsapp"></i>
             <div>
@@ -32,7 +97,7 @@
               </p>
             </div>
           </div>
-
+      
           <div class="contact-box">
             <i class="bi bi-envelope"></i>
             <div>
@@ -44,7 +109,7 @@
               </p>
             </div>
           </div>
-
+      
           <div class="contact-box">
             <i class="bi bi-geo-alt"></i>
             <div>
@@ -52,34 +117,28 @@
               <p>Gadhinglaj, Kolhapur, Maharashtra</p>
             </div>
           </div>
-
+      
         </div>
-
-        <!-- STATS -->
+      
+        <!-- 🔥 BOTTOM: STATS -->
         <div class="contact-stats">
-
           <div class="stat-item">
             <strong>50+</strong>
             <span>Houses Built</span>
           </div>
-
           <div class="stat-item">
             <strong>10+</strong>
             <span>Villages Served</span>
           </div>
-
           <div class="stat-item">
             <strong>5+</strong>
             <span>Years Experience</span>
           </div>
-
         </div>
-
+      
       </div>
 
-
-
-      <!-- MAP CARD -->
+      <!-- RIGHT SIDE MAP (UNCHANGED) -->
       <div class="map-card">
 
         <div class="map-overlay">
@@ -95,11 +154,8 @@
           loading="lazy">
         </iframe>
 
-        <!-- VILLAGE TICKER -->
         <div class="villages-section">
-
           <div class="village-ticker">
-
             <div class="village-track">
 
               <span>Gadhinglaj</span>
@@ -116,8 +172,8 @@
               <span>Aradal</span>
               <span>Hitni</span>
               <span>Sankeshwar</span>
-              <!-- duplicate for infinite scroll -->
 
+              <!-- duplicate -->
               <span>Gadhinglaj</span>
               <span>Ajara</span>
               <span>Vadarge</span>
@@ -134,9 +190,7 @@
               <span>Sankeshwar</span>
 
             </div>
-
           </div>
-
         </div>
 
       </div>
