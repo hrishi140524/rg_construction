@@ -3,21 +3,33 @@
 <router-outlet></router-outlet>
 
 <!-- Floating WhatsApp Button -->
-<a
-  href="https://wa.me/919822069294"
-  class="whatsapp-float"
-  target="_blank"
->
-  <i class="bi bi-whatsapp"></i>
-</a>
+<div class="fab-container" [class.open]="isFabOpen">
 
-<a
-href="docs/rg-construction-contract.pdf"
-target="_blank"
-class="contract-float"
-title="View Construction Agreement"
->
-📄
-</a>
+  <!-- Contract Button -->
+  <a
+    href="docs/rg-construction-contract.pdf"
+    target="_blank"
+    class="fab-item"
+    title="View Contract"
+  >
+    📄
+  </a>
+
+  <!-- WhatsApp Button -->
+  <a
+    href="https://wa.me/919822069294"
+    target="_blank"
+    class="fab-item whatsapp"
+    title="Chat on WhatsApp"
+  >
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- Main FAB Button -->
+  <button class="fab-main" (click)="toggleFab()">
+    {{ isFabOpen ? '✖' : '+' }}
+  </button>
+
+</div>
 
 <app-footer></app-footer>

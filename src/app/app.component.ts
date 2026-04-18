@@ -11,4 +11,10 @@ import { FooterComponent } from './layout/footer/footer.component';
 })
 export class AppComponent {
   title = 'rg_construction';
+
+  isFabOpen = false;
+
+toggleFab() {
+  this.isFabOpen = !this.isFabOpen;
+}
 }
