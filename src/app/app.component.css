@@ -1,0 +1,28 @@
+.whatsapp-float,
+.contract-float {
+  position: fixed;
+  right: 20px;   /* same horizontal alignment */
+  z-index: 1000;
+}
+
+/* WhatsApp button (bottom one) */
+.whatsapp-float {
+  bottom: 20px;
+  background: #25d366;
+  color: #fff;
+  font-size: 24px;
+  padding: 12px 14px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+/* Contract button (above WhatsApp) */
+.contract-float {
+  bottom: 80px;  /* 👈 adjust spacing above WhatsApp */
+  background: #1e88e5;
+  color: #fff;
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 50%;
+  text-align: center;
+}
